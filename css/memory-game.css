@@ -1,3 +1,20 @@
+html {
+	box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html, body {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
 body {
 	background-image: url("../img/geometry2.png");
 
@@ -6,9 +23,19 @@ body {
 .container {
 	display: flex;
 	flex-direction: column;
-	margin: 0 auto;
-	width: 50%;
 	justify-content: center;
+	align-items: center;
+}
+
+/*Score-keeper css*/
+h1 {
+	text-align: center;
+}
+
+.score-keeper {
+	width: 570px;
+	display: inline-flex;
+	justify-content: space-between;
 }
 
 .star-rating, .memory-game-grid {
@@ -16,9 +43,6 @@ body {
 	display: inline-block;
 }
 
-.game-title {
-	width: 100%;
-}
 
 .star-rating li {
 	display: inline-block;
@@ -28,16 +52,37 @@ body {
 	display: inline-block;
 }
 
-h1 {
-	text-align: center;
-}
-
-.score-keeper {
-	width: 100%;
-	display: inline-flex;
-	justify-content: space-between;
-}
-
 .move-counter {
 	margin-left: 4px;
 }
+/*Grid Css*/
+.memory-game-grid {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	padding: 0;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	align-content: space-evenly;
+    background: blue;
+	width: 650px;
+	min-height: 680px;
+	border-radius: 10px;
+}
+
+.game-grid-icons {
+	width: 135px;
+	height: 140px;
+	background: red;
+	text-align: center;
+	border-radius: 10px;
+}
+
+.awesome-icon {
+	height: 100%;
+	vertical-align: middle;
+}
+
+
+
+
