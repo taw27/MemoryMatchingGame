@@ -1,0 +1,43 @@
+body {
+	background-image: url("../img/geometry2.png");
+
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+	width: 50%;
+	justify-content: center;
+}
+
+.star-rating, .memory-game-grid {
+	list-style: none;
+	display: inline-block;
+}
+
+.game-title {
+	width: 100%;
+}
+
+.star-rating li {
+	display: inline-block;
+}
+
+.restart {
+	display: inline-block;
+}
+
+h1 {
+	text-align: center;
+}
+
+.score-keeper {
+	width: 100%;
+	display: inline-flex;
+	justify-content: space-between;
+}
+
+.move-counter {
+	margin-left: 4px;
+}
