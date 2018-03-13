@@ -1,3 +1,5 @@
+/* with help from the starter zip folder provided to us from udacity*/
+
 html {
 	box-sizing: border-box;
 }
@@ -70,6 +72,8 @@ h1 {
 	width: 650px;
 	min-height: 670px;
 	border-radius: 10px;
+	box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+	color: #ffebee;
 }
 
 .game-grid-icons {
@@ -79,6 +83,8 @@ h1 {
 	background: #ef5350;
 	text-align: center;
 	border-radius: 10px;
+	box-shadow: 8px 5px 20px 0 rgba(46, 61, 73, 0.7);
+
 }
 
 .awesome-icon {
