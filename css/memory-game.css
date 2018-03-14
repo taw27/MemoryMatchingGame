@@ -74,23 +74,52 @@ h1 {
 	border-radius: 10px;
 	box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
 	color: #ffebee;
+	-webkit-perspective: 800;
+	perspective: 800;
+	position: relative;
+
 }
 
 .game-grid-icons {
-	font-size: 36px;
 	width: 135px;
 	height: 130px;
-	background: #ef5350;
+	background: #64b5f6;
 	text-align: center;
 	border-radius: 10px;
 	box-shadow: 8px 5px 20px 0 rgba(46, 61, 73, 0.7);
+	position: relative;
+	-webkit-transform-style: preserve-3d;
+	-webkit-transition: transform 0.8s, background 1.5s;
+	position: relative;
+}
 
+
+.game-grid-icons .icon-face {
+	font-size: 36px;
+	-webkit-transform: rotateY(180deg);
+    transform: rotateY( 180deg );
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.game-grid-icons:hover {
+	transform: rotateY( 180deg );
+    -webkit-transform: rotateY(180deg);
+    background: #ef5350;
 }
 
 .awesome-icon {
 	height: 100%;
+	width: 100%;
 	vertical-align: middle;
 }
+
+
+
+
+
+
+
 
 
 
