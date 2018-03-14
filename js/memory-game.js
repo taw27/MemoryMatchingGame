@@ -44,7 +44,7 @@ function addClickHandler(element, counterObject, clickTrackerObject){
             clickTrackerObject.clickNumber++;   
         }
         else if(clickTrackerObject.clickNumber===1){
-            //TODO change === to == if doesnt work
+
             if(currentCard.classList.contains(clickTrackerObject.card.classList[0])){
                 currentCard.classList.add("show-card")
                 // TODO remove event listeners from target
@@ -55,9 +55,9 @@ function addClickHandler(element, counterObject, clickTrackerObject){
                 clickTrackerObject.clickNumber=0;
             }
         }
-    
+        // TODO fix game counter
         if(counterObject.counter%2===0){
-            document.querySelector(".move-counter").TextContent= (counterObject/2).toString();
+            document.querySelector(".move-counter").textContent= (counterObject.counter/2).toString()+ " Moves";
         }
     }
 }
