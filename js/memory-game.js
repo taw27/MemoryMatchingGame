@@ -1,8 +1,6 @@
 const memoryGameGrid= document.querySelector(".memory-game-grid");
 let gameCards= memoryGameGrid.children;
 
-console.log(gameCards.length);
-
 gameStart();
 
 function gameStart() {
@@ -16,43 +14,44 @@ function gameStart() {
         clickNumber:0
     };
     const randomCardArray= randomiseCardOrder(gameCards);
-    console.log(memoryGameGrid);
-
     addClickHandler(memoryGameGrid, counterObject,clickTrackerObject);  
 }
 
 function addClickHandler(element, counterObject, clickTrackerObject){
-    console.log(element);
     element.addEventListener("click", move,false);
 
     function move(e) {
+       
         let currentCard= e.target;
-
+        console.log(currentCard);
         if(currentCard===this){
             return;
         }
 
-        else if(currentCard.parentNode!==this){
-            currentCard=currentCard.parentNode;
+        else if(currentCard.parentNode.nodeName!=="UL"){
+            
+            while(currentCard.nodeName!=="LI"){
+                currentCard=currentCard.parentNode;
+            }
+            console.log(currentCard);
         }
-        console.log(currentCard);
-    
+        console.log(currentCard.parentNode);
         counterObject.counter++;
     
         if(clickTrackerObject.clickNumber===0){
             clickTrackerObject.card=currentCard;
-            currentCard.classList.add("show-card")   
+            currentCard.classList.add("show-card");
+            clickTrackerObject.clickNumber++;   
         }
         else if(clickTrackerObject.clickNumber===1){
             //TODO change === to == if doesnt work
-            if(clickTrackerObject.card.classList[0]=currentCard.classList[0]){
+            if(currentCard.classList.contains(clickTrackerObject.card.classList[0])){
                 currentCard.classList.add("show-card")
                 // TODO remove event listeners from target
                 clickTrackerObject.clickNumber=0;
             } 
             else {
                 clickTrackerObject.card.classList.remove("show-card");
-                currentCard.classList.remove("show-card");
                 clickTrackerObject.clickNumber=0;
             }
         }
