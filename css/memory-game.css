@@ -59,8 +59,11 @@ h1 {
 .move-counter {
 	margin-left: 4px;
 }
+
 /*Grid Css*/
+/* Card Flip Transition Learnt from http://activelab.io/tutorials/create-a-css-card-flip-effect-on-hover*/
 .memory-game-grid {
+	font-size: 36px;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
@@ -93,16 +96,14 @@ h1 {
 	position: relative;
 }
 
-
-.game-grid-icons .icon-face {
-	font-size: 36px;
+.hide {
 	-webkit-transform: rotateY(180deg);
     transform: rotateY( 180deg );
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
 }
 
-.game-grid-icons:hover {
+.show-card {
 	transform: rotateY( 180deg );
     -webkit-transform: rotateY(180deg);
     background: #ef5350;
