@@ -23,7 +23,7 @@ function addClickHandler(element, counterObject, clickTrackerObject){
     function move(e) {
        
         let currentCard= e.target;
-        console.log(currentCard);
+        
         if(currentCard===this){
             return;
         }
@@ -33,9 +33,9 @@ function addClickHandler(element, counterObject, clickTrackerObject){
             while(currentCard.nodeName!=="LI"){
                 currentCard=currentCard.parentNode;
             }
-            console.log(currentCard);
+            
         }
-        console.log(currentCard.parentNode);
+       
         counterObject.counter++;
     
         if(clickTrackerObject.clickNumber===0){
@@ -49,13 +49,15 @@ function addClickHandler(element, counterObject, clickTrackerObject){
                 currentCard.classList.add("show-card")
                 // TODO remove event listeners from target
                 clickTrackerObject.clickNumber=0;
+                currentCard.style.pointerEvents="none";
+                clickTrackerObject.card.pointerEvents="none";
             } 
             else {
                 clickTrackerObject.card.classList.remove("show-card");
                 clickTrackerObject.clickNumber=0;
             }
         }
-        // TODO fix game counter
+        
         if(counterObject.counter%2===0){
             document.querySelector(".move-counter").textContent= (counterObject.counter/2).toString()+ " Moves";
         }
