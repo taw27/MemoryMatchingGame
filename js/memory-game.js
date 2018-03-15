@@ -14,10 +14,10 @@ function gameStart() {
         clickNumber:0
     };
     const randomCardArray= randomiseCardOrder(gameCards);
-    addClickHandler(memoryGameGrid, counterObject,clickTrackerObject);  
+    addMoveHandler(memoryGameGrid, counterObject,clickTrackerObject);  
 }
 
-function addClickHandler(element, counterObject, clickTrackerObject){
+function addMoveHandler(element, counterObject, clickTrackerObject){
     element.addEventListener("click", move,false);
 
     function move(e) {
@@ -35,31 +35,38 @@ function addClickHandler(element, counterObject, clickTrackerObject){
             }
             
         }
-       
-        counterObject.counter++;
-    
-        if(clickTrackerObject.clickNumber===0){
-            clickTrackerObject.card=currentCard;
-            currentCard.classList.add("show-card");
-            clickTrackerObject.clickNumber++;   
-        }
-        else if(clickTrackerObject.clickNumber===1){
+        cardActions(clickTrackerObject,currentCard);
+        changeMoveCounter(counterObject);
+    }
+}
 
-            if(currentCard.classList.contains(clickTrackerObject.card.classList[0])){
-                currentCard.classList.add("show-card")
-                // TODO remove event listeners from target
-                clickTrackerObject.clickNumber=0;
-                currentCard.style.pointerEvents="none";
-                clickTrackerObject.card.pointerEvents="none";
-            } 
-            else {
-                clickTrackerObject.card.classList.remove("show-card");
-                clickTrackerObject.clickNumber=0;
-            }
-        }
-        
-        if(counterObject.counter%2===0){
-            document.querySelector(".move-counter").textContent= (counterObject.counter/2).toString()+ " Moves";
+function changeMoveCounter(counterObject){
+    counterObject.counter++;
+    
+    if(counterObject.counter%2===0){
+        document.querySelector(".move-counter").textContent= (counterObject.counter/2).toString()+ " Moves";
+    }
+}
+
+function cardActions(clickTrackerObject,currentCard){
+
+    if(clickTrackerObject.clickNumber===0){
+        clickTrackerObject.card=currentCard;
+        currentCard.classList.add("show-card");
+        clickTrackerObject.clickNumber++;   
+    }
+
+    else if(clickTrackerObject.clickNumber===1){
+
+        if(currentCard.classList.contains(clickTrackerObject.card.classList[0])){
+            currentCard.classList.add("show-card");
+            clickTrackerObject.clickNumber=0;
+            currentCard.style.pointerEvents="none";
+            clickTrackerObject.card.pointerEvents="none";
+        } 
+        else {
+            clickTrackerObject.card.classList.remove("show-card");
+            clickTrackerObject.clickNumber=0;
         }
     }
 }
