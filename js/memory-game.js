@@ -4,15 +4,8 @@ let gameCards= memoryGameGrid.children;
 gameStart();
 
 function gameStart() {
-    let counterObject=
-    {
-        counter:0
-    };
-    let clickTrackerObject=
-    {
-        card:undefined,
-        clickNumber:0
-    };
+    let counterObject={counter:0};
+    let clickTrackerObject={card:undefined,clickNumber:0};
     const randomCardArray= randomiseCardOrder(gameCards);
     addMoveHandler(memoryGameGrid, counterObject,clickTrackerObject);  
 }
@@ -53,12 +46,13 @@ function cardActions(clickTrackerObject,currentCard){
     if(clickTrackerObject.clickNumber===0){
         clickTrackerObject.card=currentCard;
         currentCard.classList.add("show-card");
+        currentCard.style.pointerEvents="none";
         clickTrackerObject.clickNumber++;   
     }
 
     else if(clickTrackerObject.clickNumber===1){
 
-        if(currentCard.classList.contains(clickTrackerObject.card.classList[0])){
+        if(currentCard.classList.contains(clickTrackerObject.card.classList[0])&& currentCard!==clickTrackerObject.card){
             currentCard.classList.add("show-card");
             clickTrackerObject.clickNumber=0;
             currentCard.style.pointerEvents="none";
@@ -66,6 +60,7 @@ function cardActions(clickTrackerObject,currentCard){
         } 
         else {
             clickTrackerObject.card.classList.remove("show-card");
+            clickTrackerObject.card.style.pointerEvents="auto";
             clickTrackerObject.clickNumber=0;
         }
     }
@@ -73,8 +68,8 @@ function cardActions(clickTrackerObject,currentCard){
 
 
 
-function randomiseCardOrder(nodeList) {
-    let randomArrayList= createRandomArrayList(nodeList);
+function randomiseCardOrder(cardNodeList) {
+    let randomArrayList= createRandomArrayList(cardNodeList);
 
     for(let i=0; i<randomArrayList.length;i++){
         randomArrayList[i].style.order= i.toString();;
