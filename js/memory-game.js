@@ -62,7 +62,7 @@ function cardActions(clickTrackerObject,currentCard){
             currentCard.classList.add("show-card");
             clickTrackerObject.clickNumber=0;
             currentCard.style.pointerEvents="none";
-            clickTrackerObject.card.pointerEvents="none";
+            clickTrackerObject.card.style.pointerEvents="none";
         } 
         else {
             clickTrackerObject.card.classList.remove("show-card");
