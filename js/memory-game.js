@@ -1,12 +1,17 @@
 const memoryGameGrid= document.querySelector(".memory-game-grid");
 let gameCards= memoryGameGrid.children;
 
+
 gameStart();
 
 function gameStart() {
     let counterObject={counter:0};
     let clickTrackerObject={card:undefined,clickNumber:0};
+    let timerObject={minutes:0,seconds:0};
     const randomCardArray= randomiseCardOrder(gameCards);
+
+    setInterval(timer,1000,timerObject);
+
     addMoveHandler(memoryGameGrid, counterObject,clickTrackerObject);  
 }
 
@@ -98,4 +103,15 @@ function createRandomArrayList(nodeList){
 
 function randomIntGnerator(upperLimit, lowerLimit){
     return (Math.floor((Math.random())*(upperLimit-lowerLimit+1))+lowerLimit);
+}
+
+function timer(timerObject){
+
+    if(timerObject.seconds===59){
+        timerObject.minutes++;
+        timerObject.seconds=0;
+    }
+    timerObject.seconds++;
+
+    document.querySelector(".timer").innerText=timerObject.minutes.toString()+" Minutes "+ timerObject.seconds.toString()+" Seconds";
 }
