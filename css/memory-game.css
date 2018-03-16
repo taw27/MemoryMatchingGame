@@ -41,6 +41,7 @@ h1 {
 	width: 570px;
 	display: inline-flex;
 	justify-content: space-between;
+	margin-top: 20px;
 }
 
 .star-rating, .memory-game-grid {
@@ -53,13 +54,25 @@ h1 {
 	display: inline-block;
 }
 
+
+.play {
+	font-size: 28px;
+	height: 100%;
+	vertical-align: middle;
+}
+
 .restart {
-	display: inline-block;
+	display: none;
 }
 
 .move-counter {
 	margin-left: 4px;
 }
+
+.timer-container {
+	align-self: center;
+}
+
 
 /*Grid Css*/
 /* Card Flip Transition Learnt from http://activelab.io/tutorials/create-a-css-card-flip-effect-on-hover*/
@@ -74,7 +87,7 @@ h1 {
 	align-content: space-evenly;
     background: linear-gradient(to bottom, #33ccff 0%, #ff9966 100%);
 	width: 650px;
-	min-height: 670px;
+	min-height: 620px;
 	border-radius: 10px;
 	box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
 	color: #ffebee;
