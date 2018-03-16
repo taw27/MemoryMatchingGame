@@ -1,17 +1,23 @@
 const memoryGameGrid= document.querySelector(".memory-game-grid");
 let gameCards= memoryGameGrid.children;
+let timer= function(timerObject) {
+    if(timerObject.seconds===59){
+        timerObject.minutes++;
+        timerObject.seconds=0;
+    }
+    timerObject.seconds++;
+
+    document.querySelector(".timer").innerText=timerObject.minutes.toString()+" Minutes   "+ timerObject.seconds.toString()+" Seconds";
+};
 
 gameStart();
 
 function gameStart() {
     let counterObject={counter:0};
     let clickTrackerObject={card:undefined,clickNumber:0};
-    let timerObject={minutes:0,seconds:0};
     const randomCardArray= randomiseCardOrder(gameCards);
 
-    setTimeout(showCardsAtGameStart,1000);
-    setInterval(timer,1000,timerObject);
-
+    showCardsAtGameStart();
     addMoveHandler(memoryGameGrid, counterObject,clickTrackerObject);  
 }
 
@@ -105,27 +111,24 @@ function randomIntGnerator(upperLimit, lowerLimit){
     return (Math.floor((Math.random())*(upperLimit-lowerLimit+1))+lowerLimit);
 }
 
-function timer(timerObject){
-
-    if(timerObject.seconds===59){
-        timerObject.minutes++;
-        timerObject.seconds=0;
-    }
-    timerObject.seconds++;
-
-    document.querySelector(".timer").innerText=timerObject.minutes.toString()+" Minutes "+ timerObject.seconds.toString()+" Seconds";
+function startTimer(){
+    let timerObject={minutes:0,seconds:0};
+    setInterval(timer, 1000,timerObject);
 }
 
 function showCardsAtGameStart(){
-    for(let i=0; i<gameCards.length;i++){
-        gameCards[i].classList.add("show-card");
-    }
-    setTimeout(hideCardsAtGameStart,3000);
+    setTimeout(function(){
+        for(let i=0; i<gameCards.length;i++){
+            gameCards[i].classList.add("show-card");
+        }
+        setTimeout(hideCardsAtGameStart,3000)
+    },1000);
 } 
 
 function hideCardsAtGameStart() {
     for(let i=0; i<gameCards.length;i++){
         gameCards[i].classList.remove("show-card");
     }
+    startTimer();
 }
 
