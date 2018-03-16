@@ -60,29 +60,39 @@ function changeMoveCounter(counterObject){
 function cardActions(clickTrackerObject,currentCard){
 
     if(clickTrackerObject.clickNumber===0){
-        clickTrackerObject.card=currentCard;
-        currentCard.classList.add("show-card");
-        currentCard.style.pointerEvents="none";
-        clickTrackerObject.clickNumber++;   
+        actionFirstCardPick(currentCard, clickTrackerObject);
     }
 
     else if(clickTrackerObject.clickNumber===1){
 
         if(currentCard.classList.contains(clickTrackerObject.card.classList[0])&& currentCard!==clickTrackerObject.card){
-            currentCard.classList.add("show-card");
-            clickTrackerObject.clickNumber=0;
-            currentCard.style.pointerEvents="none";
-            clickTrackerObject.card.style.pointerEvents="none";
+            actionCardMatch(currentCard,clickTrackerObject);
         } 
         else {
-            clickTrackerObject.card.classList.remove("show-card");
-            clickTrackerObject.card.style.pointerEvents="auto";
-            clickTrackerObject.clickNumber=0;
+            actionCardMismatch(currentCard,clickTrackerObject);
         }
     }
 }
 
+function actionFirstCardPick(currentCard, clickTrackerObject){
+    clickTrackerObject.card=currentCard;
+    currentCard.classList.add("show-card");
+    currentCard.style.pointerEvents="none";
+    clickTrackerObject.clickNumber++; 
+}
 
+function actionCardMatch(currentCard, clickTrackerObject){
+    currentCard.classList.add("show-card");
+    clickTrackerObject.clickNumber=0;
+    currentCard.style.pointerEvents="none";
+    clickTrackerObject.card.style.pointerEvents="none";
+}
+
+function actionCardMismatch(currentCard, clickTrackerObject){
+    clickTrackerObject.card.classList.remove("show-card");
+    clickTrackerObject.card.style.pointerEvents="auto";
+    clickTrackerObject.clickNumber=0;
+}
 
 function randomiseCardOrder(cardNodeList) {
     let randomArrayList= createRandomArrayList(cardNodeList);
