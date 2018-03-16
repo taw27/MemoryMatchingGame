@@ -111,12 +111,12 @@ h1 {
 	cursor: pointer;
 }
 
-/*.icon-face {
+.icon-face {
 	-webkit-transform: rotateY(180deg);
     transform: rotateY( 180deg );
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-/*}*/
+}
 
 .show-card {
 	transform: rotateY( 180deg );

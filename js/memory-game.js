@@ -1,7 +1,6 @@
 const memoryGameGrid= document.querySelector(".memory-game-grid");
 let gameCards= memoryGameGrid.children;
 
-
 gameStart();
 
 function gameStart() {
@@ -10,6 +9,7 @@ function gameStart() {
     let timerObject={minutes:0,seconds:0};
     const randomCardArray= randomiseCardOrder(gameCards);
 
+    setTimeout(showCardsAtGameStart,1000);
     setInterval(timer,1000,timerObject);
 
     addMoveHandler(memoryGameGrid, counterObject,clickTrackerObject);  
@@ -115,3 +115,17 @@ function timer(timerObject){
 
     document.querySelector(".timer").innerText=timerObject.minutes.toString()+" Minutes "+ timerObject.seconds.toString()+" Seconds";
 }
+
+function showCardsAtGameStart(){
+    for(let i=0; i<gameCards.length;i++){
+        gameCards[i].classList.add("show-card");
+    }
+    setTimeout(hideCardsAtGameStart,3000);
+} 
+
+function hideCardsAtGameStart() {
+    for(let i=0; i<gameCards.length;i++){
+        gameCards[i].classList.remove("show-card");
+    }
+}
+
