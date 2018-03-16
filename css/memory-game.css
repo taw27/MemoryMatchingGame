@@ -62,7 +62,7 @@ h1 {
 }
 
 .restart {
-	display: none;font-size: 28px;
+	display: none;font-size: 20px;
 	height: 100%;
 	vertical-align: middle;
 
@@ -124,13 +124,23 @@ h1 {
 .show-card {
 	transform: rotateY( 180deg );
     -webkit-transform: rotateY(180deg);
-    background: #ef5350;
 }
 
 .awesome-icon {
 	height: 100%;
 	width: 100%;
 	vertical-align: middle;
+}
+
+/*matching pulse animation from https://codepen.io/Jtwa/pen/dYvLpN*/
+.match-card {
+	animation: pulse 0.8s ease-in 2;
+	background: #ef5350;
+}
+
+@keyframes pulse {
+	25% {transform: scale3d(0.8,0.8,0);}
+	75% {transform: scale3d(1.2,1.2,0);}
 }
 
 

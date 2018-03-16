@@ -36,13 +36,10 @@ function addMoveHandler(element, counterObject, clickTrackerObject){
         if(currentCard===this){
             return;
         }
-
         else if(currentCard.parentNode.nodeName!=="UL"){
-            
             while(currentCard.nodeName!=="LI"){
                 currentCard=currentCard.parentNode;
             }
-            
         }
         cardActions(clickTrackerObject,currentCard);
         changeMoveCounter(counterObject);
@@ -83,6 +80,10 @@ function actionFirstCardPick(currentCard, clickTrackerObject){
 
 function actionCardMatch(currentCard, clickTrackerObject){
     currentCard.classList.add("show-card");
+    setTimeout(function(){
+        currentCard.classList.add("match-card");
+        clickTrackerObject.card.classList.add("match-card");
+    },1000);
     clickTrackerObject.clickNumber=0;
     currentCard.style.pointerEvents="none";
     clickTrackerObject.card.style.pointerEvents="none";
