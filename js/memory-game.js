@@ -10,12 +10,17 @@ let timer= function(timerObject) {
     document.querySelector(".timer").innerText=timerObject.minutes.toString()+" Minutes   "+ timerObject.seconds.toString()+" Seconds";
 };
 
-gameStart();
+document.querySelector(".play-restart").addEventListener("click", gameStart);
+
 
 function gameStart() {
     let counterObject={counter:0};
     let clickTrackerObject={card:undefined,clickNumber:0};
     const randomCardArray= randomiseCardOrder(gameCards);
+
+    document.querySelector(".play-restart").removeEventListener("click",gameStart);
+    document.querySelector(".play").style.display="none";
+    document.querySelector(".restart").style.display="initial";
 
     showCardsAtGameStart();
     addMoveHandler(memoryGameGrid, counterObject,clickTrackerObject);  

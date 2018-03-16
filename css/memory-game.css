@@ -62,7 +62,10 @@ h1 {
 }
 
 .restart {
-	display: none;
+	display: none;font-size: 28px;
+	height: 100%;
+	vertical-align: middle;
+
 }
 
 .move-counter {
