@@ -134,18 +134,22 @@ h1 {
 
 /*matching pulse animation from https://codepen.io/Jtwa/pen/dYvLpN*/
 .match-card {
-	animation: pulse 0.8s ease-in 2;
 	background: #ef5350;
+	transition: background 1s ease-in;
 }
 
-@keyframes pulse {
-	25% {transform: scale3d(0.8,0.8,0);}
-	75% {transform: scale3d(1.2,1.2,0);}
-}
+/*@keyframes pulse {
+	0% {opacity: 0;
+		background: #ef5350;
+	}
+	100% {opacity: 1;
+		background: #ef5350;
+	}
+}*/
 
 /*pop up for end game from https://www.w3schools.com/howto/howto_css_modals.asp*/
 .finish-popup {
-/*	display: none;  Hidden by default*/
+	display: none;  /*Hidden by default*/
 	position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     padding-top: 100px; /* Location of the box */
@@ -172,8 +176,18 @@ h1 {
     border-radius: 10px;
     justify-content: space-evenly;
     text-align: center;
+    animation: animate-popup 0.5s ease-in;
 }
 
+@keyframes animate-popup {
+	from { top:-300px; opacity: 0;}
+	to {top:0; opacity: 1;}
+}
+
+.end-details {
+	width:70%;
+	align-self: center;
+}
 
 
 

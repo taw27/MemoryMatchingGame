@@ -1,5 +1,7 @@
 const memoryGameGrid= document.querySelector(".memory-game-grid");
 let gameCards= memoryGameGrid.children;
+let timerObject={minutes:0,seconds:0};
+let timerIntervalId;
 let timer= function(timerObject) {
     if(timerObject.seconds===59){
         timerObject.minutes++;
@@ -41,7 +43,7 @@ function addMoveHandler(element, counterObject, clickTrackerObject){
                 currentCard=currentCard.parentNode;
             }
         }
-        cardActions(clickTrackerObject,currentCard);
+        cardActions(clickTrackerObject,currentCard,counterObject);
         changeMoveCounter(counterObject);
     }
 }
@@ -54,7 +56,7 @@ function changeMoveCounter(counterObject){
     }
 }
 
-function cardActions(clickTrackerObject,currentCard){
+function cardActions(clickTrackerObject,currentCard,counterObject){
 
     if(clickTrackerObject.clickNumber===0){
         actionFirstCardPick(currentCard, clickTrackerObject);
@@ -63,7 +65,7 @@ function cardActions(clickTrackerObject,currentCard){
     else if(clickTrackerObject.clickNumber===1){
 
         if(currentCard.classList.contains(clickTrackerObject.card.classList[0])&& currentCard!==clickTrackerObject.card){
-            actionCardMatch(currentCard,clickTrackerObject);
+            actionCardMatch(currentCard,clickTrackerObject,counterObject);
         } 
         else {
             actionCardMismatch(currentCard,clickTrackerObject);
@@ -78,21 +80,33 @@ function actionFirstCardPick(currentCard, clickTrackerObject){
     clickTrackerObject.clickNumber++; 
 }
 
-function actionCardMatch(currentCard, clickTrackerObject){
+function actionCardMatch(currentCard, clickTrackerObject,counterObject){
     currentCard.classList.add("show-card");
-    setTimeout(function(){
-        currentCard.classList.add("match-card");
-        clickTrackerObject.card.classList.add("match-card");
-    },1000);
+    currentCard.classList.add("match-card");
+    clickTrackerObject.card.classList.add("match-card");
+   
     clickTrackerObject.clickNumber=0;
     currentCard.style.pointerEvents="none";
     clickTrackerObject.card.style.pointerEvents="none";
+
+    if(document.querySelectorAll(".match-card").length===gameCards.length){
+        gameEnd(counterObject);
+    }
 }
 
 function actionCardMismatch(currentCard, clickTrackerObject){
     clickTrackerObject.card.classList.remove("show-card");
     clickTrackerObject.card.style.pointerEvents="auto";
     clickTrackerObject.clickNumber=0;
+}
+
+function gameEnd(counterObject){
+    clearInterval(timerIntervalId);
+    document.querySelector(".finish-popup").style.display="block";
+    // TODO add event listener to restart button
+    document.querySelector(".popup-move").textContent= Math.floor(counterObject.counter/2).toString();
+    document.querySelector(".popup-time").textContent= timerObject.minutes.toString()+" Minutes   "
+    + timerObject.seconds.toString()+" Seconds";
 }
 
 function randomiseCardOrder(cardNodeList) {
@@ -128,8 +142,8 @@ function randomIntGnerator(upperLimit, lowerLimit){
 }
 
 function startTimer(){
-    let timerObject={minutes:0,seconds:0};
-    setInterval(timer, 1000,timerObject);
+    timerObject={minutes:0,seconds:0};
+    timerIntervalId=setInterval(timer, 1000,timerObject);
 }
 
 function showCardsAtGameStart(){
