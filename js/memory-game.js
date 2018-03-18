@@ -2,6 +2,7 @@ const memoryGameGrid= document.querySelector(".memory-game-grid");
 let gameCards= memoryGameGrid.children;
 let timerObject={minutes:0,seconds:0};
 let timerIntervalId;
+let restart=false;
 let timer= function(timerObject) {
     if(timerObject.seconds===59){
         timerObject.minutes++;
@@ -20,17 +21,23 @@ function gameStart() {
     let clickTrackerObject={card:undefined,clickNumber:0};
     const randomCardArray= randomiseCardOrder(gameCards);
 
-    document.querySelector(".play-restart").removeEventListener("click",gameStart);
-    document.querySelector(".play").style.display="none";
-    document.querySelector(".restart").style.display="initial";
+    if(!restart){
+        document.querySelector(".timer").innerText=" Game starting, get ready!!";
+        document.querySelector(".play-restart").removeEventListener("click",gameStart);
+        document.querySelector(".play").style.display="none";
+        document.querySelector(".restart").style.display="initial";
+        document.querySelector(".play-restart").addEventListener("click",gameRestart);
+        document.querySelector(".popup-restart").addEventListener("click",gameRestart);
+    }
 
     showCardsAtGameStart();
     addMoveHandler(memoryGameGrid, counterObject,clickTrackerObject);  
 }
 
 function addMoveHandler(element, counterObject, clickTrackerObject){
-    element.addEventListener("click", move,false);
-
+    if(!restart){
+        element.addEventListener("click", move,false);
+    }
     function move(e) {
        
         let currentCard= e.target;
@@ -107,6 +114,21 @@ function gameEnd(counterObject){
     document.querySelector(".popup-move").textContent= Math.floor(counterObject.counter/2).toString();
     document.querySelector(".popup-time").textContent= timerObject.minutes.toString()+" Minutes   "
     + timerObject.seconds.toString()+" Seconds";
+}
+
+function gameRestart(){
+    document.querySelector(".finish-popup").style.display="none"
+    clearInterval(timerIntervalId);
+    timerObject={minutes:0, seconds:0};
+    document.querySelector(".timer").innerText=" Game restarting, get ready!!";
+
+    for(let i=0;i<gameCards.length;i++){
+        gameCards[i].style.pointerEvents="auto";
+        gameCards[i].classList.remove("show-card");
+        gameCards[i].classList.remove("match-card");
+    }
+    restart=true;
+    gameStart();
 }
 
 function randomiseCardOrder(cardNodeList) {
