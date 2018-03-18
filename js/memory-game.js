@@ -29,6 +29,10 @@ function gameStart() {
         document.querySelector(".play-restart").addEventListener("click",gameRestart);
         document.querySelector(".popup-restart").addEventListener("click",gameRestart);
     }
+    else {
+        counterObject.counter=0;
+        document.querySelector(".move-counter").textContent= (counterObject.counter/2).toString()+ " Moves";
+    }
 
     showCardsAtGameStart();
     addMoveHandler(memoryGameGrid, counterObject,clickTrackerObject);  
@@ -36,7 +40,11 @@ function gameStart() {
 
 function addMoveHandler(element, counterObject, clickTrackerObject){
     if(!restart){
-        element.addEventListener("click", move,false);
+        element.addEventListener("click", move);
+    }
+    else {
+        element.removeEventListener("click", move);
+        element.addEventListener("click", move);
     }
     function move(e) {
        
@@ -110,7 +118,6 @@ function actionCardMismatch(currentCard, clickTrackerObject){
 function gameEnd(counterObject){
     clearInterval(timerIntervalId);
     document.querySelector(".finish-popup").style.display="block";
-    // TODO add event listener to restart button
     document.querySelector(".popup-move").textContent= Math.floor(counterObject.counter/2).toString();
     document.querySelector(".popup-time").textContent= timerObject.minutes.toString()+" Minutes   "
     + timerObject.seconds.toString()+" Seconds";
