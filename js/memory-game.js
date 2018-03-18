@@ -30,7 +30,6 @@ function gameStart() {
         document.querySelector(".popup-restart").addEventListener("click",gameRestart);
     }
     else {
-        counterObject.counter=0;
         document.querySelector(".move-counter").textContent= (counterObject.counter/2).toString()+ " Moves";
     }
 
@@ -39,16 +38,20 @@ function gameStart() {
 }
 
 function addMoveHandler(element, counterObject, clickTrackerObject){
+    console.log(counterObject.counter + " handeler")
     if(!restart){
         element.addEventListener("click", move);
     }
-    else {
-        element.removeEventListener("click", move);
-        element.addEventListener("click", move);
-    }
+    
     function move(e) {
        
         let currentCard= e.target;
+
+        if(restart){
+            restart=false;
+            counterObject.counter=0;
+            clickTrackerObject={card:undefined,clickNumber:0}
+        }
         
         if(currentCard===this){
             return;
@@ -59,6 +62,7 @@ function addMoveHandler(element, counterObject, clickTrackerObject){
             }
         }
         cardActions(clickTrackerObject,currentCard,counterObject);
+        console.log(counterObject.counter+" in event")
         changeMoveCounter(counterObject);
     }
 }
