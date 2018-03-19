@@ -29,12 +29,8 @@ function gameStart() {
         document.querySelector(".play-restart").addEventListener("click",gameRestart);
         document.querySelector(".popup-restart").addEventListener("click",gameRestart);
     }
-    else {
-        document.querySelector(".move-counter").textContent= (counterObject.counter/2).toString()+ " Moves";
-    }
 
-    showCardsAtGameStart();
-    addMoveHandler(memoryGameGrid, counterObject,clickTrackerObject);  
+    showCardsAtGameStart(memoryGameGrid, counterObject,clickTrackerObject);  
 }
 
 function addMoveHandler(element, counterObject, clickTrackerObject){
@@ -42,7 +38,7 @@ function addMoveHandler(element, counterObject, clickTrackerObject){
     if(!restart){
         element.addEventListener("click", move);
     }
-    
+
     function move(e) {
        
         let currentCard= e.target;
@@ -72,6 +68,7 @@ function changeMoveCounter(counterObject){
     
     if(counterObject.counter%2===0){
         document.querySelector(".move-counter").textContent= (counterObject.counter/2).toString()+ " Moves";
+        starChanger(counterObject.counter/2);
     }
 }
 
@@ -128,10 +125,13 @@ function gameEnd(counterObject){
 }
 
 function gameRestart(){
+    starReset();
     document.querySelector(".finish-popup").style.display="none"
     clearInterval(timerIntervalId);
     timerObject={minutes:0, seconds:0};
     document.querySelector(".timer").innerText=" Game restarting, get ready!!";
+    document.querySelector(".move-counter").textContent= "0 Moves";
+
 
     for(let i=0;i<gameCards.length;i++){
         gameCards[i].style.pointerEvents="auto";
@@ -179,19 +179,40 @@ function startTimer(){
     timerIntervalId=setInterval(timer, 1000,timerObject);
 }
 
-function showCardsAtGameStart(){
+function showCardsAtGameStart(memoryGameGrid, counterObject,clickTrackerObject){
     setTimeout(function(){
         for(let i=0; i<gameCards.length;i++){
             gameCards[i].classList.add("show-card");
         }
-        setTimeout(hideCardsAtGameStart,3000)
+        setTimeout(hideCardsAtGameStart,3000,memoryGameGrid, counterObject,clickTrackerObject)
     },1000);
 } 
 
-function hideCardsAtGameStart() {
+function hideCardsAtGameStart(memoryGameGrid, counterObject,clickTrackerObject) {
     for(let i=0; i<gameCards.length;i++){
         gameCards[i].classList.remove("show-card");
     }
     startTimer();
+    addMoveHandler(memoryGameGrid, counterObject,clickTrackerObject);
+}
+
+function starChanger(moveCount){
+    if(moveCount===9){
+        document.querySelector(".star3").classList.add("star-hide");
+    }
+
+    else if( moveCount===14){
+        document.querySelector(".star2").classList.add("star-hide")
+    }
+
+    else if(moveCount===18) {
+        document.querySelector(".star1").classList.add("star-hide")
+    }
+}
+
+function starReset(){
+    document.querySelector(".star1").classList.remove("star-hide");
+    document.querySelector(".star2").classList.remove("star-hide");
+    document.querySelector(".star3").classList.remove("star-hide");
 }
 

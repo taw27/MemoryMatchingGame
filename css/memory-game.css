@@ -189,6 +189,21 @@ h1 {
 	align-self: center;
 }
 
+.star-hide {
+	animation:  staranimationoff 1s ease-in;
+	animation-fill-mode: forwards;
+}
+
+@keyframes staranimationoff {
+	from { opacity: 1; }
+	to {opacity: 0;}
+}
+
+.star1, .star2, .star3 {
+	opacity: 1;
+}
+
+
 
 
 
