@@ -27,7 +27,7 @@ body {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	margin-top: 20px;
+	margin-top: 2.5%;
 	width: 100%;
 	height: 100%;
 }
@@ -41,13 +41,14 @@ h1 {
 	text-align: center;
 	font-weight: normal;
 	margin: 0;
+	font-size: 36px;
 }
 
 .score-keeper {
 	width: 510px;
 	display: inline-flex;
 	justify-content: space-between;
-	margin-top: 20px;
+	margin-top: 2.5%;
 	padding: 0;
 }
 
@@ -70,7 +71,8 @@ h1 {
 }
 
 .restart {
-	display: none;font-size: 20px;
+	display: none;
+	font-size: 20px;
 	height: 100%;
 	vertical-align: middle;
 
@@ -150,7 +152,7 @@ h1 {
 	display: none;  /*Hidden by default*/
 	position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
+    padding-top: 25vh; /* Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -170,13 +172,15 @@ h1 {
     margin: auto;
     padding: 0;
     border: 1px solid #888;
-    width: 50%;
-    height: 80%;
+    max-width: 550px;
+    width: 70%;
+    height: 60%;
     box-shadow: 0 6px 20px 0 rgba(0,0,0,0.19);
     border-radius: 10px;
     justify-content: space-evenly;
     text-align: center;
     animation: animate-popup 0.5s ease-in;
+    font-size: 20px;
 }
 
 @keyframes animate-popup {
@@ -206,11 +210,126 @@ h1 {
 @media screen and (max-width: 750px) {
 	.memory-game-grid, .game-title {
 		width: 80%;
-	}
+		font-size: 34px;
 
+	}
 	.score-keeper {
 		width: 68%;
 	}
+
+	.memory-game-grid {
+		height: 65%;
+	}
+
+	.popup-content {
+		font-size: 19px;
+	}
+}
+
+@media screen and (max-width: 700px) {
+	.play {
+		font-size: 24px;
+	}
+
+	.memory-game-grid {
+		font-size: 32px;
+		height: 60%;
+	}
+
+	.restart {
+		font-size: 16px;
+	}
+
+	.score-keeper {
+		font-size: 14px;
+	}
+
+	h1 {
+		font-size: 35px;
+	}
+
+	.popup-content {
+		font-size: 18px;
+	}
+}
+
+@media screen and (max-width: 650px) {
+	.popup-content {
+		height: 65%;
+		min-width: 350px;
+	}
+
+	.memory-game-grid {
+		height: 55%;
+		font-size: 29px;
+	}
+
+	.score-keeper {
+		font-size: 12px;
+	}
+
+	h1 {
+		font-size: 33px;
+	}
+
+	.popup-content {
+		font-size: 17px;
+	}
+
+}
+
+@media screen and (max-width: 600px) {
+	.popup-content {
+		height: 60%;
+		min-width: 350px;
+		font-size: 15px;
+	}
+
+	.memory-game-grid {
+		height: 50%;
+		font-size: 26px;
+	}
+
+	h1 {
+		font-size: 31px;
+	}
+
+}
+
+@media screen and (max-width: 500px) {
+
+	.memory-game-grid {
+		font-size: 23px;
+		height: 45%;
+	}
+
+	.score-keeper {
+		font-size: 11px;
+	}
+
+	h1 {
+		font-size: 29px;
+	}
+
+	.popup-content {
+		font-size: 13px;
+	}
+}
+
+@media screen and (max-width: 460px) {
+	h1 {
+		font-size: 28px;
+	}
+
+	.memory-game-grid {
+		height: 40%;
+		font-size: 20px;
+	}
+
+	.popup-content {
+		font-size: 12px;
+	}
+
 }
 
 
