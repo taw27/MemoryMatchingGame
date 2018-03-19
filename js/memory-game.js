@@ -197,15 +197,15 @@ function hideCardsAtGameStart(memoryGameGrid, counterObject,clickTrackerObject) 
 }
 
 function starChanger(moveCount){
-    if(moveCount===9){
+    if(moveCount===10){
         document.querySelector(".star3").classList.add("star-hide");
     }
 
-    else if( moveCount===14){
+    else if( moveCount===15){
         document.querySelector(".star2").classList.add("star-hide")
     }
 
-    else if(moveCount===18) {
+    else if(moveCount===19) {
         document.querySelector(".star1").classList.add("star-hide")
     }
 }
