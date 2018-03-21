@@ -17,10 +17,12 @@ A timed game, where users match 8 pairs of cards in a grid and are given a star 
 
 ## Playing-instructions
 
- _Notes:_  + _Each move consist of two card clicks_
-           + _The move count and the star rating can be located at the top left of game grid_
-           + _The star ratings decrease by 1 afte2 10 moves, 15 moves and 19 moves_
-           + _The timer can be located at the top of the game grid once the game starts_
+ _Notes:_
+
+ + _Each move consist of two card clicks_
+ + _The move count and the star rating can be located at the top left of game grid_
+ + _The star ratings decrease by 1 afte2 10 moves, 15 moves and 19 moves_
+ + _The timer can be located at the top of the game grid once the game starts_
 
 1. Click the play button located in the top right of the game grid
 2. Wait for the cards to be revealed
