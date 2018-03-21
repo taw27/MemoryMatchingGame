@@ -4,7 +4,7 @@
 
 * [Description](#description)
 * [Running Instructions](#running-instructions)
-* [Playin Instructions](#playing-instructions)
+* [Playing Instructions](#playing-instructions)
 
 ## Description
 
@@ -18,12 +18,12 @@ A timed game, where users match 8 pairs of cards in a grid and are given a star 
  + _The star ratings decreases by 1 after 10 moves, 15 moves and 19 moves_
  + _Game ends when all the 8 pair of cards have been matched_
 
-## Running-instructions
+## Running Instructions
 
 1. Download the project
 2. Open the index.html file
 
-## Playing-instructions
+## Playing Instructions
 
 _Note: The game can be restarted anytime during the game by clicking the restart button located at the top right of the game grid_
 
