@@ -10,6 +10,14 @@
 
 A timed game, where users match 8 pairs of cards in a grid and are given a star rating based on the number of moves they took to complete it.
 
+ + _The move count and the star rating are located at the top left of game grid_
+ + _The timer is revealed at the top of the game grid once the game starts_
+ + _8 pair of cars are revealed for 3 seocnds in random order when the game starts
+ + _Each move consist of two card clicks_
+ + _The cards color changes to red for successful matches at the end of each move or hides for unsuccessful matches_
+ + _The star ratings decreases by 1 after 10 moves, 15 moves and 19 moves_
+ + _Game ends when all the 8 pair of cards have been matched_
+
 ## Running-instructions
 
 1. Download the project
@@ -17,12 +25,7 @@ A timed game, where users match 8 pairs of cards in a grid and are given a star 
 
 ## Playing-instructions
 
- _Notes:_
-
- + _Each move consist of two card clicks_
- + _The move count and the star rating can be located at the top left of game grid_
- + _The star ratings decrease by 1 afte2 10 moves, 15 moves and 19 moves_
- + _The timer can be located at the top of the game grid once the game starts_
+_Note: The game can be restarted anytime during the game by clicking the restart button located at the top right of the game grid_
 
 1. Click the play button located in the top right of the game grid
 2. Wait for the cards to be revealed
