@@ -275,19 +275,14 @@ function hideCardsAtGameStart(memoryGameGrid, counterObject,clickTrackerObject) 
 ** the move count
 */
 function starChanger(moveCount){
-    if(moveCount===10){
+    if(moveCount===12){
         document.querySelector(".star3").classList.add("star-hide");
         document.querySelector(".star6").classList.add("star-hide");
     }
 
-    else if( moveCount===15){
+    else if( moveCount===18){
         document.querySelector(".star2").classList.add("star-hide");
         document.querySelector(".star5").classList.add("star-hide");
-    }
-
-    else if(moveCount===19) {
-        document.querySelector(".star1").classList.add("star-hide");
-        document.querySelector(".star4").classList.add("star-hide");
     }
 }
 
@@ -295,9 +290,7 @@ function starChanger(moveCount){
 function starReset(){
     document.querySelector(".star1").classList.remove("star-hide");
     document.querySelector(".star2").classList.remove("star-hide");
-    document.querySelector(".star3").classList.remove("star-hide");
     document.querySelector(".star4").classList.remove("star-hide");
     document.querySelector(".star5").classList.remove("star-hide");
-    document.querySelector(".star6").classList.remove("star-hide");
 }
 
