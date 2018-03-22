@@ -15,7 +15,7 @@ A timed game, where users match 8 pairs of cards in a grid and are given a star 
  + _8 pair of cars are revealed for 3 seocnds in random order when the game starts_
  + _Each move consist of two card clicks_
  + _The cards color changes to red for successful matches at the end of each move or hides for unsuccessful matches_
- + _The star ratings decreases by 1 after 10 moves, 15 moves and 19 moves_
+ + _The star ratings decreases by 1 after 12 moves and 19 moves_
  + _Game ends when all the 8 pair of cards have been matched_
 
 ## Running Instructions
