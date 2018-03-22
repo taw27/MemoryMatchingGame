@@ -65,7 +65,7 @@ function addMoveHandler(element, counterObject, clickTrackerObject){
         if(restart){
             restart=false;
             counterObject.counter=0;
-            clickTrackerObject={card:undefined,clickNumber:0}
+            clickTrackerObject={card:undefined,clickNumber:0};
         }
 
         if(currentCard===this){
@@ -169,8 +169,7 @@ function gameEnd(counterObject){
     else{
         document.querySelector(".popup-move").textContent= ((counterObject.counter+1)/2).toString();
     }
-    document.querySelector(".popup-time").textContent= timerObject.minutes.toString()+" Minutes   "
-    + timerObject.seconds.toString()+" Seconds";
+    document.querySelector(".popup-time").textContent= timerObject.minutes.toString()+" Minutes   " + timerObject.seconds.toString()+" Seconds";
 }
 
 /*
@@ -184,7 +183,7 @@ function gameRestart(){
 
     timerObject={minutes:0, seconds:0};
 
-    document.querySelector(".finish-popup").style.display="none"
+    document.querySelector(".finish-popup").style.display="none";
     document.querySelector(".timer").innerText=" Game restarting, get ready!!";
     document.querySelector(".move-counter").textContent= "0 Moves";
 
@@ -209,7 +208,7 @@ function randomiseCardOrder(cardNodeList) {
     let randomArrayList= createRandomArrayList(cardNodeList);
 
     for(let i=0; i<randomArrayList.length;i++){
-        randomArrayList[i].style.order= i.toString();;
+        randomArrayList[i].style.order= i.toString();
     }
 
     return randomArrayList;
@@ -221,7 +220,7 @@ function randomiseCardOrder(cardNodeList) {
 ** randomIntGenerator function to shuffle the index of the contntents. Returns the shuffled arrayList
 */
 function createRandomArrayList(nodeList){
-   let arrayList= Array.from(nodeList)
+   let arrayList= Array.from(nodeList);
    let randomIndex;
    let current;
 
@@ -255,7 +254,7 @@ function showCardsAtGameStart(memoryGameGrid, counterObject,clickTrackerObject){
         for(let i=0; i<gameCards.length;i++){
             gameCards[i].classList.add("show-card");
         }
-        setTimeout(hideCardsAtGameStart,3000,memoryGameGrid, counterObject,clickTrackerObject)
+        setTimeout(hideCardsAtGameStart,3000,memoryGameGrid, counterObject,clickTrackerObject);
     },1000);
 }
 
