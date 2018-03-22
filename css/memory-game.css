@@ -175,7 +175,7 @@ h1 {
     border: 1px solid #888;
     max-width: 550px;
     width: 70%;
-    height: 60%;
+    height: 63%;
     box-shadow: 0 6px 20px 0 rgba(0,0,0,0.19);
     border-radius: 10px;
     justify-content: space-evenly;
@@ -262,7 +262,7 @@ h1 {
 
 @media screen and (max-width: 650px) {
 	.finish-popup{
-		padding-top: 28vh;
+		padding-top: 30vh;
 	}
 
 	.popup-content {
@@ -287,7 +287,7 @@ h1 {
 
 @media screen and (max-width: 600px) {
 	.finish-popup{
-		padding-top: 30vh;
+		padding-top: 33vh;
 	}
 
 	.popup-content {
@@ -309,7 +309,7 @@ h1 {
 
 @media screen and (max-width: 500px) {
 	.finish-popup{
-		padding-top: 32vh;
+		padding-top: 35vh;
 	}
 
 	.memory-game-grid {
@@ -332,7 +332,7 @@ h1 {
 
 @media screen and (max-width: 460px) {
 	.finish-popup{
-		padding-top: 36vh;
+		padding-top: 38vh;
 	}
 
 	h1 {

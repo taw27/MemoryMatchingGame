@@ -162,7 +162,13 @@ function gameEnd(counterObject){
     clearInterval(timerIntervalId);
 
     document.querySelector(".finish-popup").style.display="block";
-    document.querySelector(".popup-move").textContent= Math.floor(counterObject.counter/2).toString();
+    if(counterObject.counter%2===0){
+        document.querySelector(".popup-move").textContent= (counterObject.counter/2).toString();
+        starChanger(counterObject.counter/2);
+    }
+    else{
+        document.querySelector(".popup-move").textContent= ((counterObject.counter+1)/2).toString();
+    }
     document.querySelector(".popup-time").textContent= timerObject.minutes.toString()+" Minutes   "
     + timerObject.seconds.toString()+" Seconds";
 }
@@ -272,14 +278,17 @@ function hideCardsAtGameStart(memoryGameGrid, counterObject,clickTrackerObject) 
 function starChanger(moveCount){
     if(moveCount===10){
         document.querySelector(".star3").classList.add("star-hide");
+        document.querySelector(".star6").classList.add("star-hide");
     }
 
     else if( moveCount===15){
-        document.querySelector(".star2").classList.add("star-hide")
+        document.querySelector(".star2").classList.add("star-hide");
+        document.querySelector(".star5").classList.add("star-hide");
     }
 
     else if(moveCount===19) {
-        document.querySelector(".star1").classList.add("star-hide")
+        document.querySelector(".star1").classList.add("star-hide");
+        document.querySelector(".star4").classList.add("star-hide");
     }
 }
 
@@ -288,5 +297,8 @@ function starReset(){
     document.querySelector(".star1").classList.remove("star-hide");
     document.querySelector(".star2").classList.remove("star-hide");
     document.querySelector(".star3").classList.remove("star-hide");
+    document.querySelector(".star4").classList.remove("star-hide");
+    document.querySelector(".star5").classList.remove("star-hide");
+    document.querySelector(".star6").classList.remove("star-hide");
 }
 
