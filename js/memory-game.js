@@ -28,7 +28,7 @@ document.querySelector(".play-restart").addEventListener("click", gameStart); //
 function gameStart() {
     let counterObject={counter:0}; //Stores the move counter
     let clickTrackerObject={card:undefined,clickNumber:0}; //Stores the previous card clicked and hte clcikNumber per move cycle
-    const randomCardArray= randomiseCardOrder(gameCards);
+    randomiseCardOrder(gameCards);
 
     if(!restart){
         document.querySelector(".timer").innerText=" Game starting, get ready!!";
