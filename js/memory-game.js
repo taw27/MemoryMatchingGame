@@ -288,9 +288,9 @@ function starChanger(moveCount){
 
 // makes all the star rating visible by removing the star-hide class from the individual stars
 function starReset(){
-    document.querySelector(".star1").classList.remove("star-hide");
+    document.querySelector(".star3").classList.remove("star-hide");
     document.querySelector(".star2").classList.remove("star-hide");
-    document.querySelector(".star4").classList.remove("star-hide");
+    document.querySelector(".star6").classList.remove("star-hide");
     document.querySelector(".star5").classList.remove("star-hide");
 }
 
