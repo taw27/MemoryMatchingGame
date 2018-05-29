@@ -20,8 +20,7 @@ A timed game, where users match 8 pairs of cards in a grid and are given a star 
 
 ## Running Instructions
 
-1. Download the project or visit <https://taw27.github.io/MemoryMatchingGame/>
-2. Open the index.html file
+1. Visit <https://taw27.github.io/MemoryMatchingGame/>
 
 ## Playing Instructions
 
